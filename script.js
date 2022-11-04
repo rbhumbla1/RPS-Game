@@ -3,15 +3,19 @@ var compSel = "";
 var valArr = ["R", "P", "S"];
 var rand = 0;
 var again = "true";
-var wins = 0;
-var loses = 0;
-var ties = 0;
+var stats = {
+    wins: 0,
+    loses: 0,
+    ties: 0
+};
 
 //function to play the game
 function playGame() {
     while (again) {
 
         userInput = window.prompt("Please select one : R, P or S");
+        userInput = userInput.toUpperCase();
+        
 
         if (userInput == "") {
             window.alert("Please input one of the values: R, P or S");
@@ -27,10 +31,20 @@ function playGame() {
 
             //put login for win, loses & ties
             if(userInput === compSel){
-                ties++;
-            }else if ((userInput === "R" && compSel === "S") )
+                stats.ties++;
+                window.alert("It is a tie!");
+            }else if ((userInput === "R" && compSel === "S") ||
+                        (userInput === "P" && compSel === "R") ||
+                        (userInput === "S" && compSel === "P")){
+                stats.wins++;
+                window.alert("You win!");
+            }else {
+                stats.loses++;
+                window.alert("You lost!");
+            }
 
             //display stats
+            window.alert("Stats so far:\n Wins:"+ stats.wins + "\nLosses:" + stats.loses + "\nTies:" + stats.ties);
 
             //see if we want to run again
             again = window.confirm("Play again?");
