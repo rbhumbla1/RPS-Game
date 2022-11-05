@@ -57,5 +57,5 @@ function playGame() {
 }
 
 //put while statement here
-setTimeout(playGame, 2000);
+setTimeout(playGame, 1000);
 // playGame();
