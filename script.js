@@ -14,6 +14,7 @@ function playGame() {
     while (again) {
 
         userInput = window.prompt("Please select one : R, P or S");
+       if(userInput !== null)
         userInput = userInput.toUpperCase();
         
 
@@ -48,6 +49,7 @@ function playGame() {
 
             //see if we want to run again
             again = window.confirm("Play again?");
+            console.log ("again = "+ again);
         } else {
             again = false;
         }
